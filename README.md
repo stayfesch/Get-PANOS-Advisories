@@ -28,8 +28,15 @@ mklink -H "<PRTG>\Custom Sensors\EXE\Get-PANOS-Advisories.ps1" "<PRTG>\Custom Se
 -ip %host -advanced -severities "CRITICAL", "HIGH", "MEDIUM", "LOW"
 ```
 
+## Exclude CVE's
+If you want to exclude certain CVE's from being reported, e.g. if you know a certain CVE may apply to your PAN-OS version, but not your configuration, you can use the **-exclude** parameter.  
+For Example:  
+```
+-ip %host -advanced -severities "CRITICAL", "HIGH", "MEDIUM", "LOW" -exclude "CVE-2024-3382", "CVE-2024-3381"
+```
 
-**Recommended Limits:**  
+
+## Recommended Limits:  
 
 Set _Upper Error Limit_ for _CRITICAL_ and _HIGH_ to 0,  
 _Upper Warning Limit_ for _Medium_ to 0  
